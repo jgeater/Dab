@@ -49,6 +49,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cur_act = new System.Windows.Forms.Label();
+            this.q_button = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -233,11 +234,22 @@
             this.cur_act.Size = new System.Drawing.Size(0, 20);
             this.cur_act.TabIndex = 18;
             // 
+            // q_button
+            // 
+            this.q_button.Location = new System.Drawing.Point(536, 533);
+            this.q_button.Name = "q_button";
+            this.q_button.Size = new System.Drawing.Size(117, 41);
+            this.q_button.TabIndex = 19;
+            this.q_button.Text = "Quit";
+            this.q_button.UseVisualStyleBackColor = true;
+            this.q_button.Click += new System.EventHandler(this.q_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(811, 816);
+            this.Controls.Add(this.q_button);
             this.Controls.Add(this.cur_act);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.statusStrip1);
@@ -289,6 +301,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label cur_act;
+        private System.Windows.Forms.Button q_button;
     }
 }
 
