@@ -46,6 +46,7 @@ namespace Dab
         private void data_loc_TextChanged(object sender, EventArgs e)
         {
             //check space and user rights and disable copy button if problems are found
+            cpy_data.Enabled = true;
         }
 
         private void cpy_data_Click(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace Dab
                 //If the directory is not empty ask to delete everything in it
                 if (Directory.EnumerateFileSystemEntries(new_data_loc).Any())
                 {
-                    DialogResult dialogResult = MessageBox.Show("The selected directory already has userdata in it." + Environment.NewLine + "Do you want to Delete it?" + Environment.NewLine + Environment.NewLine + "Press Yes to Delete the data " + Environment.NewLine + "Press No to Exit.", "User data found", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("The selected directory already has userdata for "+usr_Name+" in it." + Environment.NewLine + "Do you want to Delete it?" + Environment.NewLine + Environment.NewLine + "Press Yes to DELETE ALL OF THE DATA in this folder!" + Environment.NewLine + "Press No to Exit.", "User data found", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         try
