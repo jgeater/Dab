@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Dab
 {
@@ -18,6 +19,10 @@ namespace Dab
         {
             InitializeComponent();
         }
+
+        //string log_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "File_error.log";
+        //MessageBox.Show(log_file);
+
 
         private void backup_CheckedChanged(object sender, EventArgs e)
         {
@@ -52,6 +57,8 @@ namespace Dab
         private void cpy_data_Click(object sender, EventArgs e)
         {
             //set up varibles pointing to the users name and  folders
+
+
             copy_Cur.Visible = true;
             string usr_Name = System.Environment.UserName;
             string mdoc_Path = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -66,6 +73,14 @@ namespace Dab
             // if copy to is checked
             if (backup.Checked == true)
             {
+                //Delete existing log file if it exists
+                string log_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\File_error.log";
+                if (File.Exists(log_file))
+                {
+                    File.Delete(log_file);
+                    
+                }
+
                 //create a foilder with the users name if it doesnt exist and append it to the data_log path
                 string new_data_loc = Path.Combine(data_loc.Text + @"\" + usr_Name);
                 Directory.CreateDirectory(new_data_loc);
@@ -83,9 +98,9 @@ namespace Dab
 
                         catch (Exception)
                         {
-                            MessageBox.Show("Failed to Delete some data." + Environment.NewLine + "Manually delete the remaining data and rerun the application" + Environment.NewLine + "Press OK to Exit");
-                            Environment.ExitCode=1;
-                            Environment.Exit(1);
+                            //MessageBox.Show("Failed to Delete some data." + Environment.NewLine + "Manually delete the remaining data and rerun the application" + Environment.NewLine + "Press OK to Exit");
+                            //Environment.ExitCode=1;
+                            //Environment.Exit(1);
                         }
                     }
                     else if (dialogResult == DialogResult.No)
@@ -182,9 +197,19 @@ namespace Dab
 
             //if copy from it checked
             if (restore.Checked == true)
+
             {
                 string new_data_loc = Path.Combine(data_loc.Text + @"\" + usr_Name);
 
+                //Delete existing log file if it exists
+                string log1_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\File_error.log";
+                if (File.Exists(log1_file))
+                {
+                    File.Delete(log1_file);
+
+                }
+
+                //no user data was found so show message
                 if (!Directory.Exists(new_data_loc))
                 {
                     MessageBox.Show("No User data found for " + usr_Name);
@@ -209,7 +234,15 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Desktop";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Desktop folder was not found in "+new_data_loc +"."+ Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
+                    
                 }
 
                 //copy Documents if checked
@@ -219,7 +252,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Documents";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Documents folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy Favorites if checked
@@ -229,7 +269,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Favorites";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Favorites folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy Pictures if checked
@@ -239,7 +286,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Pictures";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Pictures folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy Music if checked
@@ -249,7 +303,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Music";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Music folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy Video if checked
@@ -259,7 +320,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Video";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Video folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy Downloads if checked
@@ -269,7 +337,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Downloads";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Downloads folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
                 //copy contacts if checked
@@ -279,7 +354,14 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Contacts";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
-                    DirectoryCopy(sourcePath, targetPath, true);
+                    {
+                        MessageBox.Show("The Contacts folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
+
+                    }
+                    if (Directory.Exists(sourcePath))
+                    {
+                        DirectoryCopy(sourcePath, targetPath, true);
+                    }
                 }
 
 
@@ -289,10 +371,27 @@ namespace Dab
 
 
             //All done
+            progressBar1.Value = 0;
             copy_Cur.Text = "Copy Completed";
             toolStripStatusLabel1.Text = "Copy Completed";
             cur_act.Text = "";
             MessageBox.Show("Data copy complete!");
+
+            string log3_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\File_error.log";
+            if (File.Exists(log3_file))
+            {
+                MessageBox.Show("Some Files were not copied."+ Environment.NewLine +"This is likely because the files were locked or in use." + Environment.NewLine+ "Press OK to see the list of files");
+                Process Showlog = new Process();
+                Showlog.StartInfo.FileName = "notepad.exe";
+                Showlog.StartInfo.Arguments = log3_file;
+                Showlog.StartInfo.UseShellExecute = false;
+                Showlog.StartInfo.RedirectStandardOutput = true;
+                Showlog.Start();
+
+            }
+
+
+
         }
 
 
@@ -319,6 +418,7 @@ namespace Dab
 
 
             // Get the file contents of the directory to copy.
+            Application.DoEvents();
             FileInfo[] files = dir.GetFiles();
             progressBar1.Maximum = files.Count();
             progressBar1.Value = 0;
@@ -331,10 +431,27 @@ namespace Dab
                 string temppath = Path.Combine(destDirName, file.Name);
 
                 // Copy the file.
+                Application.DoEvents();
                 cur_act.Text = ("Now Copying " + temppath);
                 progressBar1.Value++;
-                file.CopyTo(temppath, true);
-                
+
+                try
+                {
+                    file.CopyTo(temppath, true);
+                }
+                catch
+                {
+                    //log failure and move on
+                    string log_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\File_error.log";
+                    
+                    using (StreamWriter w = File.AppendText(log_file))
+                    {
+                        string logmsg = "Failed to copy the File "+sourceDirName +"\\"+ file;
+                        Log(logmsg, w);
+                    }
+                }
+
+                Application.DoEvents();
             }
 
             // If copySubDirs is true, copy the subdirectories.
@@ -354,10 +471,9 @@ namespace Dab
 
         }
 
-        private void updateprogressbar()
+        public void Log(string logmessage, TextWriter w)
         {
-            progressBar1.Value++;
-
+            w.WriteLine("{0}: {1}: {2}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), logmessage);
         }
 
         private void q_button_Click(object sender, EventArgs e)

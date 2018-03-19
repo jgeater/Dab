@@ -59,7 +59,7 @@
             this.backup.AutoSize = true;
             this.backup.Checked = true;
             this.backup.Location = new System.Drawing.Point(127, 75);
-            this.backup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backup.Margin = new System.Windows.Forms.Padding(4);
             this.backup.Name = "backup";
             this.backup.Size = new System.Drawing.Size(115, 29);
             this.backup.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             this.restore.AutoSize = true;
             this.restore.Location = new System.Drawing.Point(299, 75);
-            this.restore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.restore.Margin = new System.Windows.Forms.Padding(4);
             this.restore.Name = "restore";
             this.restore.Size = new System.Drawing.Size(118, 29);
             this.restore.TabIndex = 1;
@@ -83,8 +83,10 @@
             // usr_Documents
             // 
             this.usr_Documents.AutoSize = true;
+            this.usr_Documents.Checked = true;
+            this.usr_Documents.CheckState = System.Windows.Forms.CheckState.Checked;
             this.usr_Documents.Location = new System.Drawing.Point(127, 267);
-            this.usr_Documents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Documents.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Documents.Name = "usr_Documents";
             this.usr_Documents.Size = new System.Drawing.Size(152, 29);
             this.usr_Documents.TabIndex = 2;
@@ -94,8 +96,10 @@
             // usr_Desktop
             // 
             this.usr_Desktop.AutoSize = true;
+            this.usr_Desktop.Checked = true;
+            this.usr_Desktop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.usr_Desktop.Location = new System.Drawing.Point(127, 307);
-            this.usr_Desktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Desktop.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Desktop.Name = "usr_Desktop";
             this.usr_Desktop.Size = new System.Drawing.Size(123, 29);
             this.usr_Desktop.TabIndex = 3;
@@ -105,8 +109,10 @@
             // usr_Favorites
             // 
             this.usr_Favorites.AutoSize = true;
+            this.usr_Favorites.Checked = true;
+            this.usr_Favorites.CheckState = System.Windows.Forms.CheckState.Checked;
             this.usr_Favorites.Location = new System.Drawing.Point(127, 347);
-            this.usr_Favorites.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Favorites.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Favorites.Name = "usr_Favorites";
             this.usr_Favorites.Size = new System.Drawing.Size(133, 29);
             this.usr_Favorites.TabIndex = 4;
@@ -117,7 +123,7 @@
             // 
             this.usr_Pictures.AutoSize = true;
             this.usr_Pictures.Location = new System.Drawing.Point(127, 387);
-            this.usr_Pictures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Pictures.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Pictures.Name = "usr_Pictures";
             this.usr_Pictures.Size = new System.Drawing.Size(122, 29);
             this.usr_Pictures.TabIndex = 5;
@@ -128,7 +134,7 @@
             // 
             this.usr_Music.AutoSize = true;
             this.usr_Music.Location = new System.Drawing.Point(127, 427);
-            this.usr_Music.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Music.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Music.Name = "usr_Music";
             this.usr_Music.Size = new System.Drawing.Size(101, 29);
             this.usr_Music.TabIndex = 6;
@@ -139,7 +145,7 @@
             // 
             this.usr_Videos.AutoSize = true;
             this.usr_Videos.Location = new System.Drawing.Point(127, 467);
-            this.usr_Videos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Videos.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Videos.Name = "usr_Videos";
             this.usr_Videos.Size = new System.Drawing.Size(110, 29);
             this.usr_Videos.TabIndex = 7;
@@ -150,7 +156,7 @@
             // 
             this.usr_Downloads.AutoSize = true;
             this.usr_Downloads.Location = new System.Drawing.Point(127, 507);
-            this.usr_Downloads.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Downloads.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Downloads.Name = "usr_Downloads";
             this.usr_Downloads.Size = new System.Drawing.Size(150, 29);
             this.usr_Downloads.TabIndex = 8;
@@ -161,7 +167,7 @@
             // 
             this.usr_Contacts.AutoSize = true;
             this.usr_Contacts.Location = new System.Drawing.Point(127, 547);
-            this.usr_Contacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usr_Contacts.Margin = new System.Windows.Forms.Padding(4);
             this.usr_Contacts.Name = "usr_Contacts";
             this.usr_Contacts.Size = new System.Drawing.Size(129, 29);
             this.usr_Contacts.TabIndex = 9;
@@ -181,7 +187,7 @@
             // data_loc
             // 
             this.data_loc.Location = new System.Drawing.Point(132, 172);
-            this.data_loc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.data_loc.Margin = new System.Windows.Forms.Padding(4);
             this.data_loc.Name = "data_loc";
             this.data_loc.Size = new System.Drawing.Size(573, 31);
             this.data_loc.TabIndex = 12;
@@ -189,10 +195,10 @@
             // 
             // browse1
             // 
-            this.browse1.Location = new System.Drawing.Point(715, 172);
-            this.browse1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.browse1.Location = new System.Drawing.Point(715, 163);
+            this.browse1.Margin = new System.Windows.Forms.Padding(4);
             this.browse1.Name = "browse1";
-            this.browse1.Size = new System.Drawing.Size(161, 35);
+            this.browse1.Size = new System.Drawing.Size(161, 48);
             this.browse1.TabIndex = 13;
             this.browse1.Text = "Browse";
             this.browse1.UseVisualStyleBackColor = true;
@@ -202,7 +208,7 @@
             // 
             this.cpy_data.Enabled = false;
             this.cpy_data.Location = new System.Drawing.Point(127, 711);
-            this.cpy_data.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cpy_data.Margin = new System.Windows.Forms.Padding(4);
             this.cpy_data.Name = "cpy_data";
             this.cpy_data.Size = new System.Drawing.Size(156, 55);
             this.cpy_data.TabIndex = 14;
@@ -239,7 +245,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(127, 803);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(744, 39);
             this.progressBar1.TabIndex = 17;
@@ -256,7 +262,7 @@
             // q_button
             // 
             this.q_button.Location = new System.Drawing.Point(715, 711);
-            this.q_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.q_button.Margin = new System.Windows.Forms.Padding(4);
             this.q_button.Name = "q_button";
             this.q_button.Size = new System.Drawing.Size(156, 55);
             this.q_button.TabIndex = 19;
@@ -289,7 +295,7 @@
             this.Controls.Add(this.restore);
             this.Controls.Add(this.backup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DAB- Sumplie User Data Copy";
