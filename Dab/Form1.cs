@@ -333,7 +333,7 @@ namespace Dab
                 // Copy the file.
 
                 file.CopyTo(temppath, true);
-                cur_act.Text = ("Now Copying " + temppath + "\\" + file);
+                cur_act.Text = ("Now Copying " + temppath);
                 progressBar1.Value++;
             }
 
