@@ -329,12 +329,12 @@ namespace Dab
                 // Create the path to the new copy of the file.
                
                 string temppath = Path.Combine(destDirName, file.Name);
-               
-                // Copy the file.
 
-                file.CopyTo(temppath, true);
+                // Copy the file.
                 cur_act.Text = ("Now Copying " + temppath);
                 progressBar1.Value++;
+                file.CopyTo(temppath, true);
+                
             }
 
             // If copySubDirs is true, copy the subdirectories.
