@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Security.AccessControl;
 
 namespace Dab
 {
@@ -91,8 +92,11 @@ namespace Dab
                     DialogResult dialogResult = MessageBox.Show("The selected directory already has userdata for "+usr_Name+" in it." + Environment.NewLine + "Do you want to Delete it?" + Environment.NewLine + Environment.NewLine + "Press Yes to DELETE ALL OF THE DATA in this folder!" + Environment.NewLine + "Press No to Exit.", "User data found", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        copy_Cur.Text = "Deleting Old Data in" + new_data_loc + ".  Please Wait";
+                        toolStripStatusLabel1.Text = "Deleting Old user data.";
                         try
                         {
+                         
                             System.IO.Directory.Delete(new_data_loc, true);
                         }
 
@@ -399,6 +403,9 @@ namespace Dab
                 string sourceDirName, string destDirName, bool copySubDirs)
         {
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+            //need to exclude subfolders named "My Music", "My Videos", and "My Pictures" from the line below
+
             DirectoryInfo[] dirs = dir.GetDirectories();
             Application.DoEvents();
 
