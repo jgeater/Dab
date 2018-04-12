@@ -238,8 +238,9 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Desktop";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
-                        MessageBox.Show("The Desktop folder was not found in "+new_data_loc +"."+ Environment.NewLine + "It will not be copied");
+                        MessageBox.Show("The Downloads folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
                     if (Directory.Exists(sourcePath))
@@ -256,6 +257,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Documents";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Documents folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -273,6 +275,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Favorites";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Favorites folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -290,6 +293,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Pictures";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Pictures folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -307,6 +311,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Music";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Music folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -324,6 +329,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Video";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Video folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -341,6 +347,8 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Downloads";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Downloads folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
@@ -358,6 +366,7 @@ namespace Dab
                     string sourcePath = new_data_loc + @"\Contacts";
                     copy_Cur.Text = "Now Copying:" + targetPath;
                     toolStripStatusLabel1.Text = "Now Copying:" + targetPath;
+                    if (!Directory.Exists(sourcePath))
                     {
                         MessageBox.Show("The Contacts folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
