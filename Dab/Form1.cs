@@ -90,14 +90,23 @@ namespace Dab
                 if (Directory.EnumerateFileSystemEntries(new_data_loc).Any())
                 {
                     DialogResult dialogResult = MessageBox.Show("The selected directory already has userdata for "+usr_Name+" in it." + Environment.NewLine + "Do you want to Delete it?" + Environment.NewLine + Environment.NewLine + "Press Yes to DELETE ALL OF THE DATA in this folder!" + Environment.NewLine + "Press No to Exit.", "User data found", MessageBoxButtons.YesNo);
+                    Application.DoEvents();
+
                     if (dialogResult == DialogResult.Yes)
                     {
+
+                        Application.DoEvents();
                         copy_Cur.Text = "Deleting Old Data in" + new_data_loc + ".  Please Wait";
                         toolStripStatusLabel1.Text = "Deleting Old user data.";
                         try
                         {
-                         
+                            Application.DoEvents();
+                            DirectoryInfo dirInfo = new DirectoryInfo(new_data_loc);
+                            var files = dirInfo.GetFiles();
+
+                            copy_Cur.Text = "Deleting Old Data in" + new_data_loc + ".  Please Wait";
                             System.IO.Directory.Delete(new_data_loc, true);
+                            //RemoveDirectories(new_data_loc);
                         }
 
                         catch (Exception)
@@ -243,7 +252,7 @@ namespace Dab
                         MessageBox.Show("The Downloads folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -262,7 +271,7 @@ namespace Dab
                         MessageBox.Show("The Documents folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -280,7 +289,7 @@ namespace Dab
                         MessageBox.Show("The Favorites folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -298,7 +307,7 @@ namespace Dab
                         MessageBox.Show("The Pictures folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -316,7 +325,7 @@ namespace Dab
                         MessageBox.Show("The Music folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -334,7 +343,7 @@ namespace Dab
                         MessageBox.Show("The Video folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -353,7 +362,7 @@ namespace Dab
                         MessageBox.Show("The Downloads folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -371,7 +380,7 @@ namespace Dab
                         MessageBox.Show("The Contacts folder was not found in " + new_data_loc + "." + Environment.NewLine + "It will not be copied");
 
                     }
-                    if (Directory.Exists(sourcePath))
+                    if (!Directory.Exists(sourcePath))
                     {
                         DirectoryCopy(sourcePath, targetPath, true);
                     }
@@ -402,8 +411,6 @@ namespace Dab
                 Showlog.Start();
 
             }
-
-
 
         }
 
@@ -498,6 +505,95 @@ namespace Dab
 
         }
 
+        //private void RemoveDirectories(string strpath)
+        //{
+
+        //    DirectoryInfo dir = new DirectoryInfo(strpath);
+
+
+
+        //    DirectoryInfo[] dirs = dir.GetDirectories();
+        //    Application.DoEvents();
+
+        //    // If the source directory does not exist, throw an exception.
+        //    if (!dir.Exists)
+        //    {
+        //        throw new DirectoryNotFoundException(
+        //            "Source directory does not exist or could not be found: "
+        //            + strpath);
+        //    }
+
+        //    // If the destination directory does not exist, do nothing .
+        //    if (!Directory.Exists(strpath))
+        //    {
+               
+        //    }
+
+
+        //    // Get the file contents of the directory to copy.
+        //    Application.DoEvents();
+        //    FileInfo[] files = dir.GetFiles();
+        //    progressBar1.Maximum = files.Count();
+        //    progressBar1.Value = 0;
+
+
+        //    foreach (FileInfo file in files)
+        //    {
+        //        // Create the path to the new copy of the file.
+
+        //        string temppath = Path.Combine(strpath, file.Name);
+
+        //        // Copy the file.
+        //        Application.DoEvents();
+        //        cur_act.Text = ("Deleting " + temppath);
+        //        progressBar1.Value++;
+
+        //        try
+        //        {
+        //            file.Delete(true);
+        //        }
+        //        catch
+        //        {
+        //            //log failure and move on
+        //            string log_file = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\File_error.log";
+
+        //            using (StreamWriter w = File.AppendText(log_file))
+        //            {
+        //                string logmsg = "Failed to copy the File " + strpath + "\\" + file;
+        //                Log(logmsg, w);
+        //            }
+        //        }
+
+        //        Application.DoEvents();
+        //    }
+
+        //    // If copySubDirs is true, copy the subdirectories.
+        //    if (copySubDirs)
+        //    {
+
+        //        foreach (DirectoryInfo subdir in dirs)
+        //        {
+        //            //only copy subdir if it isnt a reparsepoint
+
+        //            try
+        //            {
+        //                // Create the subdirectory.
+        //                string temppath = Path.Combine(destDirName, subdir.Name);
+
+        //                // Copy the subdirectories.
+        //                DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+
+        //            }
+        //            catch
+        //            {
+        //                string logmsg = "Failed to copy the Directory " + sourceDirName + ".";
+        //            }
+
+
+        //        }
+        //    }
+        //}
+
         public void Log(string logmessage, TextWriter w)
         {
             w.WriteLine("{0}: {1}: {2}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), logmessage);
@@ -506,6 +602,11 @@ namespace Dab
         private void q_button_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
